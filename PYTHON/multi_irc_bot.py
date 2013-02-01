@@ -19,7 +19,7 @@ def irc_connect(server, port, channel, username, filename):
 				irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
 			if data.find ( 'hi '+username ) != -1:
 				irc.send ( 'PRIVMSG '+channel+' :I already said hi...\r\n' )
-			elif data.find ( 'hello botty' ) != -1:
+			elif data.find ( 'hello '+username ) != -1:
 				irc.send ( 'PRIVMSG '+channel+' :I already said hi...\r\n' )
 			elif data.find ( 'KICK' ) != -1:
 				irc.send ( 'JOIN '+channel+'\r\n' )
