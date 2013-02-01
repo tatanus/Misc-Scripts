@@ -30,7 +30,7 @@ def irc_connect(server, port, channel, username, filename):
 
 def usage():
 	print "\nUSAGE: "+sys.argv[0]+" <config file>\n"
-	sys.exit()
+	sys.exit(0)
 
 if __name__ == "__main__":
 	config_file = sys.argv[1] if len(sys.argv) >= 2 else usage()
