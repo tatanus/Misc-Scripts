@@ -10,7 +10,7 @@ def irc_connect(server, port, channel, username, filename):
 	irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 	irc.connect ( ( server, int(port) ) )
 	irc.send ( 'NICK '+username+'\r\n' )
-	irc.send ( 'USER '+username+' 8 * :ExploitSearch.net\r\n' )
+	irc.send ( 'USER '+username+' 8 * :"+username+"-BOT\r\n' )
 	irc.send ( 'JOIN '+channel+'\r\n' )
 	while True:
 		data = irc.recv ( 4096 )
