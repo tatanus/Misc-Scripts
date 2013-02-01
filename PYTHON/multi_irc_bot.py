@@ -27,8 +27,6 @@ def irc_connect(server, port, channel, username, filename):
 				m = re.match(r'.*PRIVMSG [^:]+:(.*)', data)
 				if (m):
 					outfile.write(m.group(1)+"\n")
-				else:
-					print data
 
 def usage():
 	print "\nUSAGE: "+sys.argv[0]+" <config file>\n"
