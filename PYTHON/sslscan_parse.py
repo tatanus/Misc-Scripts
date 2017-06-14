@@ -61,18 +61,19 @@ for line in data:
                 if protocol not in depricatedlist:
                     depricatedlist.append(protocol)
             elif (protocol == "TLSv1.2"):
-                if "DES" in cipher:
-                    if cipher not in weakciphers:
-                        weakciphers.append(cipher)
-                elif "RSA" in cipher:
-                    if cipher not in weakciphers:
-                        weakciphers.append(cipher)
-                elif "NULL" in cipher:
-                    if cipher not in weakciphers:
-                        weakciphers.append(cipher)
-                elif int(bit) < 112:
-                    if cipher not in weakciphers:
-                        weakciphers.append(cipher)
+                if "ECDHE" not in cipher:
+                    if "DES" in cipher:
+                        if cipher not in weakciphers:
+                            weakciphers.append(cipher)
+                    elif "RSA" in cipher:
+                        if cipher not in weakciphers:
+                            weakciphers.append(cipher)
+                    elif "NULL" in cipher:
+                        if cipher not in weakciphers:
+                            weakciphers.append(cipher)
+                    elif int(bit) < 112:
+                        if cipher not in weakciphers:
+                            weakciphers.append(cipher)
         else:
             m = re.match( r'^\s*RSA Key Strength:\s*(\d\d*)', line)
             if (m):
